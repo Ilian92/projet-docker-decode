@@ -11,3 +11,4 @@ services:
 networks:
   symfony_network:
     external: true
+    name: symfony_network

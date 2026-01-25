@@ -22,4 +22,5 @@ volumes:
 
 networks:
   symfony_network:
+    name: symfony_network
     driver: bridge

@@ -14,7 +14,8 @@ RUN apk add --no-cache \
     php82-json \
     wget
 
-RUN wget -O /var/www/adminer.php "https://github.com/vrana/adminer/releases/download/v${ADMINER_VERSION}/adminer-${ADMINER_VERSION}.php" \
+RUN mkdir -p /var/www \
+    && wget -O /var/www/adminer.php "https://github.com/vrana/adminer/releases/download/v${ADMINER_VERSION}/adminer-${ADMINER_VERSION}.php" \
     && chmod 644 /var/www/adminer.php
 
 WORKDIR /var/www

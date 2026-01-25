@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Todos{% endblock %}
+
+{% block body %}
+<div style="max-width: 800px; margin: 50px auto;">
+    <h1>Todo List</h1>
+
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f4f4f4;">
+                <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
+                <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Titre</th>
+                <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">{{ todo.id }}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">{{ todo.titre }}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                        {% if todo.done %}
+                            <span style="color: green; font-weight: bold;">Fait</span>
+                        {% else %}
+                            <span style="color: orange;">À faire</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <p style="margin-top: 20px; color: #666;">
+        Total : {{ todos|length }} tâche(s)
+    </p>
+
+</div>
+{% endblock %}
