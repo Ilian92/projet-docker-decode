@@ -1,7 +1,16 @@
 services:
   web:
     build: .
+    container_name: web
     ports:
       - "8000:8000"
     volumes:
       - .:/var/www/html
+    environment:
+      - DATABASE_URL=postgresql://symfony_user:symfony_password@postgres:5432/symfony_db?serverVersion=15&charset=utf8
+    networks:
+      - symfony_network
+
+networks:
+  symfony_network:
+    external: true

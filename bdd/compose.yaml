@@ -1,0 +1,25 @@
+services:
+  postgres:
+    build:
+      context: .
+    container_name: postgres
+    environment:
+      POSTGRES_VERSION: 15
+      POSTGRES_USER: symfony_user
+      POSTGRES_PASSWORD: symfony_password
+      POSTGRES_DB: symfony_db
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - symfony_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  symfony_network:
+    driver: bridge
