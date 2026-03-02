@@ -63,3 +63,11 @@ cd ../adminer && docker compose up -d
 
 - Ilian Igoudgil
 - Noan Delatouche
+
+### Commandes pour lancer le projet
+
+```
+cd bdd docker compose up -d --build
+cd adminer docker compose up -d --build
+cd symfony docker compose build --no-cache composer && docker compose up -d --build
+```
