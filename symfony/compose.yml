@@ -1,4 +1,8 @@
 services:
+  composer:
+    build: ../composer
+    image: projet-composer
+
   web:
     build: .
     container_name: web

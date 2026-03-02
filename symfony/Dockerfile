@@ -1,6 +1,4 @@
-FROM php:8.2-alpine AS projet-composer
-RUN apk add --no-cache git unzip \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+FROM projet-composer
 
 FROM php:8.2-cli-alpine
 
