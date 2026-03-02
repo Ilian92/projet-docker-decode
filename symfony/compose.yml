@@ -6,6 +6,8 @@ services:
   web:
     build: .
     container_name: web
+    depends_on:
+      - composer
     ports:
       - "8000:8000"
     volumes:
